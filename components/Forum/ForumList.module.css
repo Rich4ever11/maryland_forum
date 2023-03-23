@@ -1,10 +1,12 @@
 .heroImage {
   position: absolute;
   z-index: -1;
-  left: 0%;
+  right: 0%;
+  margin-bottom: 100px;
+  top: 100px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1040px) {
   /** Prevents hero image eye coverage**/
   .heroImage {
     display: none;
@@ -13,14 +15,13 @@
 
 @media (min-width: 768px) {
   .heroImage {
-    right: 20%;
+    right: 0%;
     padding-top: 20px;
   }
 }
 
 @media (max-width: 1400px) {
   .heroImage {
-    bottom: 200px;
-    right: 20%;
+    right: 0%;
   }
 }

@@ -1,0 +1,11 @@
+@media only screen and (max-width: 400px) {
+  #repliesSection {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #repliesSection {
+    display: none;
+  }
+}
