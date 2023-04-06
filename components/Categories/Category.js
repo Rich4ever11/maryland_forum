@@ -8,8 +8,8 @@ export default function Category(props) {
     title,
     description,
     sections = [],
-    threads,
-    messages,
+    threadCount,
+    messageCount,
     userProfilePic,
     imgUrl,
   } = props;
@@ -38,16 +38,16 @@ export default function Category(props) {
           id={styles.sectionLinks}
         >
           {sections.map((section, index) => (
-            <div key={index}>
+            <div key={index} className="inline-block">
               <Image
-                className="p-1"
+                className="p-1 inline-block"
                 src="/static/comment.png"
                 height={25}
                 width={25}
               />
-              <div className="p-1">
-                <Link href={`/category/${categoryId}/thread/${section}`}>
-                  {section}
+              <div className="p-1 inline-block">
+                <Link href={`/category/${categoryId}/forum/${section.forumId}`}>
+                  {section.name}
                 </Link>
               </div>
             </div>
@@ -61,11 +61,15 @@ export default function Category(props) {
       >
         <div className="p-2 text-center">
           Threads{" "}
-          <div className="flex text-red-700 dark:text-red-800">{threads}</div>
+          <div className="flex text-red-700 dark:text-red-800">
+            {threadCount}
+          </div>
         </div>{" "}
         <div className="p-2 text-center">
           Messages{" "}
-          <div className="flex text-red-700 dark:text-red-800">{messages}</div>
+          <div className="flex text-red-700 dark:text-red-800">
+            {messageCount}
+          </div>
         </div>
       </div>
 

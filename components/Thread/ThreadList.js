@@ -34,8 +34,7 @@ export default function ThreadList({ threadData, postData, loginStatus }) {
               {"   "}&nbsp;&nbsp;{postData.length} replies by 2 contributors
             </p>
           </div>
-          <PostList postData={postData} />
-
+          <PostList postData={postData} currentLoggedInUser={loginStatus.id} />
           {loginStatus ? (
             <>
               <Post

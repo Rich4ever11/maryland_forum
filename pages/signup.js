@@ -2,6 +2,7 @@ import NavBar from "@/components/NavBar/NavBar";
 import styles from "@/styles/SignUp.module.css";
 import { useRouter } from "next/router";
 import { useState } from "react";
+const fs = require("fs");
 
 /* middleware */
 import { getAppCookies, verifyToken, setLogout } from "../utils/middleware";
@@ -28,13 +29,14 @@ export default function SignUp() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState({});
   const [password, setPassword] = useState("");
 
   const router = useRouter();
 
   async function SignUpUser(e) {
     e.preventDefault();
+    console.log();
     await fetch("http://localhost:3000/api/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -135,14 +137,16 @@ export default function SignUp() {
                     Avatar
                   </label>
                   <input
-                    type="link"
+                    type="file"
                     name="avatar"
                     id="avatar"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder=""
                     required=""
-                    onChange={(e) => {
-                      setAvatar(e.target.value);
+                    accept=".png, .jpg, .jpeg"
+                    onChange={async (e) => {
+                      const file = e.target.files[0];
+                      setAvatar(file.name);
                     }}
                   />
                 </div>

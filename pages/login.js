@@ -5,12 +5,7 @@ import styles from "../styles/Login.module.css";
 import Cookies from "js-cookie";
 
 /* middleware */
-import {
-  absoluteUrl,
-  getAppCookies,
-  verifyToken,
-  setLogout,
-} from "../utils/middleware";
+import { getAppCookies, verifyToken, setLogout } from "../utils/middleware";
 
 export async function getServerSideProps(context) {
   const { req } = context;

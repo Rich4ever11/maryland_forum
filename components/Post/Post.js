@@ -1,4 +1,8 @@
-import { BarsArrowUpIcon, TrashIcon } from "@heroicons/react/24/outline";
+import {
+  BarsArrowUpIcon,
+  TrashIcon,
+  PencilSquareIcon,
+} from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -10,6 +14,7 @@ export default function Post({
   editStatus,
   postCreation,
   threadId,
+  loggedUserId,
 }) {
   const [toggleEdit, setToggleEdit] = useState(false);
   const [userPost, setUserPost] = useState("");
@@ -18,6 +23,10 @@ export default function Post({
   function enableEdit() {
     setToggleEdit(!toggleEdit);
   }
+
+  function editPost() {}
+
+  function deletePost() {}
 
   async function createNewPost() {
     await fetch("http://localhost:3000/api/createPost", {
@@ -65,6 +74,17 @@ export default function Post({
                     value={userPost}
                   ></textarea>
                 </div>
+              ) : toggleEdit ? (
+                <div className="mt-2">
+                  <textarea
+                    id="edit"
+                    name="editText"
+                    rows="3"
+                    className="mt-1 p-4 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
+                    onChange={(e) => setUserPost(e.target.value)}
+                    value={text}
+                  ></textarea>
+                </div>
               ) : (
                 <div>
                   <p className="text-gray-700 text-base p-4">{text}</p>
@@ -75,11 +95,37 @@ export default function Post({
               <div className="grid grid-cols-12">
                 <div className="md:col-span-1 sm:col-span-2 col-span-4 align-middle">
                   <button
-                    className=" text-white bg-rose-700 hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800col-span-2"
+                    className=" text-white bg-amber-700 hover:bg-amber-800 focus:outline-none focus:ring-4 focus:ring-amber-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-rose-800col-span-2"
                     onClick={createNewPost}
                   >
                     <BarsArrowUpIcon height={25} /> Post
                   </button>
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
+            {loggedUserId === creatorId ? (
+              <div>
+                <div className="grid grid-cols-12">
+                  <div className="md:col-span-1 sm:col-span-2 col-span-4 align-middle">
+                    <button
+                      className=" text-white bg-red-600 hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-400 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-red-600 dark:hover:bg-red-600 dark:focus:ring-rose-800col-span-2"
+                      onClick={deletePost}
+                    >
+                      <TrashIcon height={25} /> End
+                    </button>
+                  </div>
+                </div>
+                <div className="grid grid-cols-12">
+                  <div className="md:col-span-1 sm:col-span-2 col-span-4 align-middle">
+                    <button
+                      className=" text-white bg-indigo-400 hover:bg-indigo-400 focus:outline-none focus:ring-4 focus:ring-indigo-200 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-indigo-400 dark:hover:bg-indigo-400 dark:focus:ring-rose-800col-span-2"
+                      onClick={enableEdit}
+                    >
+                      <PencilSquareIcon height={25} /> Edit
+                    </button>
+                  </div>
                 </div>
               </div>
             ) : (

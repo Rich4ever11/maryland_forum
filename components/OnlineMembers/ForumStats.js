@@ -4,7 +4,6 @@ export default function ForumStats() {
     { name: "Messages:", count: "48,022,270" },
     { name: "Members:", count: "27,590" },
     { name: "Latest member:", count: "Vickyyyy32" },
-    { name: "Reputation(s):", count: "1,768,326" },
   ];
 
   return (

@@ -1,6 +1,6 @@
 import Post from "../Post/Post";
 
-export default function PostList({ postData }) {
+export default function PostList({ postData, currentLoggedInUser }) {
   return (
     <div className="">
       {postData.map((post, index) => (
@@ -10,6 +10,7 @@ export default function PostList({ postData }) {
           text={post.text}
           publishedAt={post.publishedAt}
           creatorId={post.creatorId}
+          loggedUserId={currentLoggedInUser}
         ></Post>
       ))}
     </div>
