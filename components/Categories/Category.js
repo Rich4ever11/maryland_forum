@@ -84,9 +84,9 @@ export default function Category(props) {
         </div>
         <div className="p-3">
           <div className="text-xs py-1">
-            Does anyone on here like Adam Silver?
+            How many of you guys actual like this forum?
           </div>
-          <div className="text-xs py-1">Today at 2:14 PM : tremonthustler1</div>
+          <div className="text-xs py-1">Today at 7:14 PM : marylrumGuy232</div>
         </div>
       </div>
     </div>

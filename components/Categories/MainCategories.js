@@ -6,60 +6,25 @@ import ForumStats from "../OnlineMembers/ForumStats";
 export default function MainCategory({ categories, title }) {
   const categoriesData = [
     {
-      title: "University of Maryland, Baltimore County",
-      description:
-        "University of Maryland, Baltimore County is a public institution that was founded in 1966.",
-      sections: ["Sports", "Entertainment", "Misc"],
       userProfilePic: "https://randomuser.me/api/portraits/men/21.jpg",
-      imgUrl: "/static/UMBClogo.png",
     },
     {
-      title: "University of Maryland",
-      description:
-        "UMD is consistently recognized as one of the preeminent public research universities in the United States.",
-      sections: ["Sports", "Entertainment", "Misc"],
       userProfilePic: "https://randomuser.me/api/portraits/women/13.jpg",
-      imgUrl: "/static/UMDlogo.png",
     },
     {
-      title: "Johns Hopkins University",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum leo nec metus sollicitudin congue. Pellentesque magna urna, interdum in ullamcorper eu, faucibus vitae tellus. ",
-      sections: ["Sports", "Entertainment", "Misc"],
       userProfilePic: "https://randomuser.me/api/portraits/women/45.jpg",
-      imgUrl: "/static/JHUlogo.png",
     },
     {
-      title: "Towson University",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum leo nec metus sollicitudin congue. Pellentesque magna urna, interdum in ullamcorper eu, faucibus vitae tellus. ",
-      sections: ["Sports", "Entertainment", "Misc"],
       userProfilePic: "https://randomuser.me/api/portraits/women/34.jpg",
-      imgUrl: "/static/TUlogo.png",
     },
     {
-      title: "Salisbury University",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum leo nec metus sollicitudin congue.",
-      sections: ["Sports", "Entertainment", "Misc"],
       userProfilePic: "https://randomuser.me/api/portraits/women/7.jpg",
-      imgUrl: "/static/SUlogo.png",
     },
     {
-      title: "Morgan State University",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum leo nec metus sollicitudin congue.",
-      sections: ["Sports", "Entertainment", "Misc"],
       userProfilePic: "https://randomuser.me/api/portraits/men/11.jpg",
-      imgUrl: "/static/MSUlogo.png",
     },
     {
-      title: "Bowie State University",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum leo nec metus sollicitudin congue.",
-      sections: ["Sports", "Entertainment", "Misc"],
       userProfilePic: "https://randomuser.me/api/portraits/men/41.jpg",
-      imgUrl: "/static/BUlogo.png",
     },
   ];
 
@@ -79,7 +44,7 @@ export default function MainCategory({ categories, title }) {
                 sections={categories[index].sections}
                 threadCount={categories[index].threadCount}
                 messageCount={categories[index].messageCount}
-                userProfilePic={category.userProfilePic}
+                userProfilePic={"https://i.redd.it/6enjuad2sa671.png"}
                 imgUrl={categories[index].logoUrl}
               />
             </div>
