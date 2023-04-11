@@ -18,15 +18,34 @@ export default function Post({
 }) {
   const [toggleEdit, setToggleEdit] = useState(false);
   const [userPost, setUserPost] = useState("");
+  const [userEdit, setUserEdit] = useState(text);
   const router = useRouter();
 
   function enableEdit() {
     setToggleEdit(!toggleEdit);
   }
 
-  function editPost() {}
+  async function editPost() {
+    // await fetch("http://localhost:3000/api/editPost", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({
+    //     postData: { postId: id, postEdit: userEdit },
+    //   }),
+    // });
+    await router.reload(window.location.pathname);
+  }
 
-  function deletePost() {}
+  async function deletePost() {
+    await fetch("http://localhost:3000/api/deletePost", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        postId: id,
+      }),
+    });
+    await router.reload(window.location.pathname);
+  }
 
   async function createNewPost() {
     await fetch("http://localhost:3000/api/createPost", {
@@ -38,7 +57,7 @@ export default function Post({
       }),
     });
     setUserPost("");
-    await router.push(`/thread/${threadId}`);
+    await router.reload(window.location.pathname);
   }
 
   return (
@@ -81,9 +100,15 @@ export default function Post({
                     name="editText"
                     rows="3"
                     className="mt-1 p-4 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
-                    onChange={(e) => setUserPost(e.target.value)}
+                    onChange={(e) => setUserEdit(e.target.value)}
                     value={text}
                   ></textarea>
+                  <button
+                    class="my-2 bg-rose-500 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded-full"
+                    onClick={editPost}
+                  >
+                    Submit Edit
+                  </button>
                 </div>
               ) : (
                 <div>
