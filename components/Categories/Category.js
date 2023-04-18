@@ -13,6 +13,7 @@ export default function Category(props) {
     userProfilePic,
     imgUrl,
   } = props;
+
   return (
     <div
       className="grid sm:grid-cols-12 max-[500]:grid-cols-4 backdrop-blur-sm bg-red-50 rounded-xl background: rgba(255, 255, 255, 0.22);

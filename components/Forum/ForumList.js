@@ -14,7 +14,7 @@ export default function ForumList(props) {
       setThreadData(data.threadData);
     }
     getThreadData();
-  });
+  }, []);
 
   return (
     <div>

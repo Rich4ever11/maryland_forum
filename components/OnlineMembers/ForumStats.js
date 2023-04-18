@@ -1,10 +1,16 @@
+import { useState, useEffect } from "react";
+
 export default function ForumStats() {
-  const forumInfo = [
-    { name: "Threads:", count: "920,543" },
-    { name: "Messages:", count: "48,022,270" },
-    { name: "Members:", count: "27,590" },
-    { name: "Latest member:", count: "Vickyyyy32" },
-  ];
+  const [forumStats, setForumStats] = useState({});
+
+  useEffect(() => {
+    async function getStats() {
+      const response = await fetch(`/api/getStats`);
+      const data = await response.json();
+      setForumStats(data["forumStats"]);
+    }
+    getStats();
+  }, []);
 
   return (
     <div className="invisible lg:visible">
@@ -16,12 +22,12 @@ export default function ForumStats() {
       <div className="content-center m-0 pl-8">
         <table className="content-center m-0">
           <tbody>
-            {forumInfo.map((info, index) => (
+            {Object.keys(forumStats).map((key, index) => (
               <tr>
                 <td className="text-red-500 dark:text-red-400 text-md">
-                  {info.name}
+                  {key}
                 </td>
-                <td className="text-right text-md">{info.count}</td>
+                <td className="text-right text-md">{forumStats[key]}</td>
               </tr>
             ))}
           </tbody>

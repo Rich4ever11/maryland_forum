@@ -4,10 +4,12 @@ import {
   PencilSquareIcon,
 } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { formatDate, formatSignUpDate } from "../../lib/helperFunctions";
 
 export default function Post({
   id,
+  postIndex,
   text,
   publishedAt,
   creatorId,
@@ -15,6 +17,9 @@ export default function Post({
   postCreation,
   threadId,
   loggedUserId,
+  creatorUsername,
+  creatorRegisteredAt,
+  creatorMessageCount,
 }) {
   const [toggleEdit, setToggleEdit] = useState(false);
   const [userPost, setUserPost] = useState("");
@@ -67,21 +72,26 @@ export default function Post({
           <div className="flex flex-wrap justify-center sm:col-span-2 col-span-4">
             <div className="w-100 p-4">
               <img
-                src="https://i.redd.it/6enjuad2sa671.png"
+                src="\static\marylandPerson.png"
                 alt="..."
                 className="shadow rounded-full max-w-full h-auto align-middle border-none"
               />
               <div className="text-red-400 font-bold text-xl mb-2 align-middle text-center">
-                {creatorId}
+                {creatorUsername}
               </div>
               <div className="text-xs text-center">
-                <p>Joined: Mar 11, 2022</p> <p>Messages: 609</p>
+                <p>
+                  Joined: {formatSignUpDate(creatorRegisteredAt) || "Unknown"}
+                </p>{" "}
+                <p>Messages: {creatorMessageCount}</p>
               </div>
             </div>
           </div>
           <div className="mb-8 sm:col-span-10 col-span-8 py-4">
             <div className="mb-8 divide-y-2 divide-red-200 divide-opacity-25">
-              <div className=" text-gray-900 text-xs mb-2">{publishedAt} </div>
+              <div className=" text-gray-900 text-xs mb-2">
+                {formatDate(publishedAt) || "Unknown"}{" "}
+              </div>
               {editStatus ? (
                 <div className="mt-2">
                   <textarea
@@ -104,7 +114,7 @@ export default function Post({
                     value={userEdit}
                   ></textarea>
                   <button
-                    class="my-2 bg-rose-500 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded-full"
+                    className="my-2 bg-rose-500 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded-full"
                     onClick={editPost}
                   >
                     Submit Edit
@@ -132,16 +142,20 @@ export default function Post({
             )}
             {loggedUserId === creatorId ? (
               <div>
-                <div className="grid grid-cols-12">
-                  <div className="md:col-span-1 sm:col-span-2 col-span-4 align-middle">
-                    <button
-                      className=" text-white bg-red-600 hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-400 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-red-600 dark:hover:bg-red-600 dark:focus:ring-rose-800col-span-2"
-                      onClick={deletePost}
-                    >
-                      <TrashIcon height={25} /> End
-                    </button>
+                {postIndex !== 0 ? (
+                  <div className="grid grid-cols-12">
+                    <div className="md:col-span-1 sm:col-span-2 col-span-4 align-middle">
+                      <button
+                        className=" text-white bg-red-600 hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-400 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-red-600 dark:hover:bg-red-600 dark:focus:ring-rose-800col-span-2"
+                        onClick={deletePost}
+                      >
+                        <TrashIcon height={25} /> End
+                      </button>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <></>
+                )}
                 <div className="grid grid-cols-12">
                   <div className="md:col-span-1 sm:col-span-2 col-span-4 align-middle">
                     <button

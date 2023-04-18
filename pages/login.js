@@ -1,6 +1,6 @@
 import NavBar from "@/components/NavBar/NavBar";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "../styles/Login.module.css";
 import Cookies from "js-cookie";
 

@@ -3,7 +3,6 @@ import ThreadList from "@/components/Thread/ThreadList";
 import { useRouter } from "next/router";
 
 import { getAppCookies, verifyToken, setLogout } from "../../utils/middleware";
-import { useEffect, useState } from "react";
 
 export async function getServerSideProps(context) {
   const { req } = context;

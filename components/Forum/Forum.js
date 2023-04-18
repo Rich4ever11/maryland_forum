@@ -1,8 +1,11 @@
 import Image from "next/image";
 import styles from "./Forum.module.css";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { formatDate } from "../../lib/helperFunctions";
 
 export default function Thread(props) {
+  const [threadInfo, setThreadInfo] = useState({});
   const {
     categoryId,
     forumId,
@@ -15,6 +18,21 @@ export default function Thread(props) {
     authorUsername,
     createDate,
   } = props;
+
+  useEffect(() => {
+    async function getForumCardData() {
+      const response = await fetch(`/api/getForumData`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          threadId,
+        }),
+      });
+      const data = await response.json();
+      setThreadInfo(data["resultData"]);
+    }
+    getForumCardData();
+  }, []);
 
   return (
     <>
@@ -42,11 +60,11 @@ export default function Thread(props) {
               </Link>
             </div>
             <div>
-              By{" "}
+              By {threadInfo["creatorUsername"]}
               <Link href="/" className=" text-red-700">
                 {authorUsername}
               </Link>
-              , {createDate}
+              , {formatDate(createDate)}
             </div>
           </div>
         </div>
@@ -57,7 +75,7 @@ export default function Thread(props) {
         >
           <strong>
             <div className="text-1xl font-bold tracking-tight text-red-500 dark:text-red-800 pt-4">
-              {replies} Replies
+              {threadInfo["replies"]} Replies
             </div>
           </strong>
         </div>
@@ -66,15 +84,26 @@ export default function Thread(props) {
           <div className="rounded-full">
             <img
               className="rounded-full shadow align-middle border-none p-2"
-              src="https://randomuser.me/api/portraits/men/21.jpg"
+              src="\static\marylandPerson.png"
               width={100}
               height={10}
             />
           </div>
-          <div className="p-3">
-            <div className="text-medium py-1">{latestPosterUsername}</div>
-            <div className="text-xs py-1">{latestPostDate}</div>
-          </div>
+          {threadInfo["latestPostData"] ? (
+            <div className="p-3">
+              <div className="text-medium py-1">
+                {threadInfo["latestPostData"]?.postInfo["text"]}
+              </div>
+              <div className="text-xs py-1">
+                By {threadInfo["latestPostData"]?.creatorInfo["username"]},{" "}
+                {formatDate(
+                  threadInfo["latestPostData"]?.postInfo["publishedAt"]
+                )}
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </>

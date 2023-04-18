@@ -12,8 +12,8 @@ export default function Footer() {
                 The point of this forum is to provide a insightful discussion
                 between college students and alumni. We do not promote any form
                 of bully, harassment or abuse within our forum. Any actions that
-                go against the forum will be dealt with according. Have fun and
-                post whatever you like ;)
+                go against the forum will be dealt with accordingly. Have fun
+                and post whatever you like.
               </h5>
             </div>
             <div className="w-full lg:w-6/12 px-4">

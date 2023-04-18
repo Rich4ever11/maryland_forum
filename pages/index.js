@@ -10,7 +10,6 @@ import Footer from "@/components/Footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 import { absoluteUrl, getAppCookies, verifyToken } from "../utils/middleware";
-import { useEffect, useState } from "react";
 
 export async function getServerSideProps(context) {
   const { req } = context;

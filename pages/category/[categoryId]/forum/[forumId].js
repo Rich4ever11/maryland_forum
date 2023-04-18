@@ -1,9 +1,6 @@
 import NavBar from "@/components/NavBar/NavBar";
 import ForumList from "@/components/Forum/ForumList";
-import { useRouter } from "next/router";
-
 import { getAppCookies, verifyToken } from "../../../../utils/middleware";
-import { useEffect, useState } from "react";
 
 export async function getServerSideProps(context) {
   const { req } = context;
