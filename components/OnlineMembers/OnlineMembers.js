@@ -9,7 +9,6 @@ export default function OnlineMembers() {
       const response = await fetch(`/api/getUserData`);
       const data = await response.json();
       setNewUserList(data["latestUsers"]);
-      console.log(newUserList);
     }
     getNewUsers();
   }, []);
@@ -35,7 +34,7 @@ export default function OnlineMembers() {
                     <div className="flex col-span-2 p-1">
                       <img
                         className="rounded-full shadow align-middle border-gray-100 "
-                        src={`https://randomuser.me/api/portraits/women/${index}.jpg`}
+                        src="\static\marylandflag.jpg"
                         alt=""
                         width={100}
                         height={10}

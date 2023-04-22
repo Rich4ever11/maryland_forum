@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Categories.module.css";
+import { useEffect, useState } from "react";
+import { formatSignUpDate } from "../../lib/helperFunctions";
 
 export default function Category(props) {
   const {
@@ -13,16 +15,29 @@ export default function Category(props) {
     userProfilePic,
     imgUrl,
   } = props;
+  const [latestPost, setLatestPost] = useState("");
+
+  useEffect(() => {
+    async function getLatestPost() {
+      let forumIDList = [];
+      sections.map((section) => {
+        forumIDList.push(section.forumId);
+      });
+      const response = await fetch(`/api/latestPost`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sections: forumIDList,
+        }),
+      });
+      const data = await response.json();
+      setLatestPost(data["latestUsers"]);
+    }
+    getLatestPost();
+  }, []);
 
   return (
-    <div
-      className="grid sm:grid-cols-12 max-[500]:grid-cols-4 backdrop-blur-sm bg-red-50 rounded-xl background: rgba(255, 255, 255, 0.22);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.1px);
-    -webkit-backdrop-filter: blur(4.1px);
-    border: 1px solid rgba(255, 255, 255, 0.15);"
-    >
+    <div className="grid sm:grid-cols-12 max-[500]:grid-cols-4 backdrop-blur-sm bg-red-50 rounded-xl background: rgba(255, 255, 255, 0.22); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(4.1px); -webkit-backdrop-filter: blur(4.1px); border: 1px solid rgba(255, 255, 255, 0.15);">
       <div className="max-[500]:col-span-2">
         <Image className="p-4" src={imgUrl} height={100} width={100} />
       </div>
@@ -85,9 +100,13 @@ export default function Category(props) {
         </div>
         <div className="p-3">
           <div className="text-xs py-1">
-            How many of you guys actual like this forum?
+            {latestPost?.text?.split(" ").slice(0, 4).join(" ") + "..." ||
+              "N/A"}
           </div>
-          <div className="text-xs py-1">Today at 7:14 PM : marylrumGuy232</div>
+          <div className="text-xs py-1">
+            {formatSignUpDate(latestPost?.publishedAt) || "N/A"} :{" "}
+            {latestPost?.username || "N/A"}
+          </div>
         </div>
       </div>
     </div>

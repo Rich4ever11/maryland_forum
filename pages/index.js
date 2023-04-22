@@ -35,7 +35,7 @@ export default function Home({ tokenStatus, categories }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <NavBar loginStatus={tokenStatus.id} />
+        <NavBar loginStatus={tokenStatus} />
         <div className={styles.heroImage}>
           <Image src="/static/friends.webp" width={520} height={500} alt={""} />
         </div>
@@ -49,6 +49,7 @@ export default function Home({ tokenStatus, categories }) {
           />
         )}
       </main>
+
       <Footer />
     </>
   );

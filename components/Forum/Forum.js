@@ -6,6 +6,7 @@ import { formatDate } from "../../lib/helperFunctions";
 
 export default function Thread(props) {
   const [threadInfo, setThreadInfo] = useState({});
+  const [latestPostText, setLatestPostText] = useState("");
   const {
     categoryId,
     forumId,
@@ -36,14 +37,7 @@ export default function Thread(props) {
 
   return (
     <>
-      <div
-        className="grid sm:grid-cols-12 max-[500]:grid-cols-4 backdrop-blur-sm bg-red-50 rounded-xl background: rgba(255, 255, 255, 0.22);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.1px);
-    -webkit-backdrop-filter: blur(4.1px);
-    border: 1px solid rgba(255, 255, 255, 0.15);"
-      >
+      <div className="grid sm:grid-cols-12 max-[500]:grid-cols-4 backdrop-blur-sm bg-red-50 rounded-xl background: rgba(255, 255, 255, 0.22); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(4.1px); -webkit-backdrop-filter: blur(4.1px); border: 1px solid rgba(255, 255, 255, 0.15);">
         <div className="max-[500]:col-span-6 col-span-6 grid grid-cols-12">
           <div className="col-span-2">
             <Image
@@ -92,7 +86,8 @@ export default function Thread(props) {
           {threadInfo["latestPostData"] ? (
             <div className="p-3">
               <div className="text-medium py-1">
-                {threadInfo["latestPostData"]?.postInfo["text"]}
+                {threadInfo["latestPostData"]?.postInfo["text"].slice(0, 25) +
+                  "..."}
               </div>
               <div className="text-xs py-1">
                 By {threadInfo["latestPostData"]?.creatorInfo["username"]},{" "}

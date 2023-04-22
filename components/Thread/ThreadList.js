@@ -6,10 +6,20 @@ import {
 import PostList from "../Post/PostList";
 import Post from "../Post/Post";
 import { formatDate, formatSignUpDate } from "../../lib/helperFunctions";
+import { useRouter } from "next/router";
 
 export default function ThreadList({ threadData, postData, loginStatus }) {
+  const route = useRouter();
+
   async function deleteThread() {
-    alert("Thread Deleted");
+    await fetch("http://localhost:3000/api/deleteThread", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        threadId: threadData.threadId,
+      }),
+    });
+    route.push("/");
   }
 
   async function editThread() {
@@ -67,10 +77,13 @@ export default function ThreadList({ threadData, postData, loginStatus }) {
           {loginStatus ? (
             <>
               <Post
+                threadId={threadData.threadId}
                 creatorId={loginStatus.id}
+                creatorRegisteredAt={loginStatus.createdAt}
+                creatorUsername={loginStatus.username}
+                publishedAt={new Date().toString()}
                 editStatus={true}
                 postCreation={true}
-                threadId={threadData.threadId}
               />
             </>
           ) : (

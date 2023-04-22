@@ -58,6 +58,61 @@ export default function MainCategory({ categories, title }) {
           <ForumStats />
         </div>
       </div>
+      <div className="mb-10">
+        <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
+          <h1 className="font-extrabold leading-tight md:text-7xl text-6xl pb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 text-center">
+            {"Maryland Photography"}
+          </h1>
+          <div className="-m-1 flex flex-wrap md:-m-2">
+            <div className="flex w-1/2 flex-wrap">
+              <div className="w-1/2 p-1 md:p-2">
+                <img
+                  alt="gallery"
+                  className="block h-full w-full rounded-lg object-cover object-center"
+                  src="https://bearfoottheory.com/wp-content/uploads/2020/02/great-falls-va.jpg"
+                />
+              </div>
+              <div className="w-1/2 p-1 md:p-2">
+                <img
+                  alt="gallery"
+                  className="block h-full w-full rounded-lg object-cover object-center"
+                  src="https://assets3.thrillist.com/v1/image/3062242/1200x600/scale;"
+                />
+              </div>
+              <div className="w-full p-1 md:p-2">
+                <img
+                  alt="gallery"
+                  className="block h-full w-full rounded-lg object-cover object-center"
+                  src="https://virginiatraveltips.com/wp-content/uploads/2021/08/Best-places-for-fall-in-Maryland.jpg"
+                />
+              </div>
+            </div>
+            <div className="flex w-1/2 flex-wrap">
+              <div className="w-full p-1 md:p-2">
+                <img
+                  alt="gallery"
+                  className="block h-full w-full rounded-lg object-cover object-center"
+                  src="https://www.marylandzoo.org/wp-content/uploads/2021/03/SnowyOwlTracker3.jpg"
+                />
+              </div>
+              <div className="w-1/2 p-1 md:p-2">
+                <img
+                  alt="gallery"
+                  className="block h-full w-full rounded-lg object-cover object-center"
+                  src="https://www.visittheusa.com/sites/default/files/styles/16_9_1280x720/public/images/hero_media_image/2018-12/94666d240389c46df88438e05cec5216.jpeg?h=a98222f4&itok=fbhjZTNE"
+                />
+              </div>
+              <div className="w-1/2 p-1 md:p-2">
+                <img
+                  alt="gallery"
+                  className="block h-full w-full rounded-lg object-cover object-center"
+                  src="https://images.rove.me/maryland_w1280.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <></>
     </div>
   );

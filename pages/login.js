@@ -46,8 +46,6 @@ export default function Login({ tokenStatus }) {
         .then(async (resultData) => {
           if (resultData?.data?.jwtStatus && resultData?.data?.token) {
             Cookies.set("token", resultData?.data?.token);
-            // window.location.href = referer ? referer : "/";
-            // const pathUrl = referer ? referer.lastIndexOf("/") : "/";
             await router.push("/");
           } else {
             alert("Failed To Login");
