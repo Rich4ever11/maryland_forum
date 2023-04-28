@@ -56,7 +56,7 @@ export default function CreateThread({ tokenStatus, categoryInfo, forumData }) {
 
   return (
     <>
-      <NavBar loginStatus={tokenStatus.id} />
+      <NavBar loginStatus={tokenStatus} />
       <h1 className="font-extrabold outline outline-offset-2 outline-1 leading-tight md:text-8xl text-7xl mt-0 mb-2 pb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-600 text-center">
         Create Thread
       </h1>

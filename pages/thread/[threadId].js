@@ -33,7 +33,7 @@ export default function Thread({ tokenStatus, threadPostData }) {
 
   return (
     <>
-      <NavBar loginStatus={tokenStatus.id} />
+      <NavBar loginStatus={tokenStatus} />
       <ThreadList
         threadData={threadPostData.threadData}
         postData={threadPostData.postData}
