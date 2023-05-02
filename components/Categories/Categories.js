@@ -13,7 +13,7 @@ export default function Categories({ title }) {
     <div>
       <div className="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-4 grid grid-cols-10">
         <div className="col-span-10">
-          <h1 className="font-extrabold leading-tight text-6xl mt-0 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-800 text-center">
+          <h1 className="font-thin leading-tight text-6xl mt-0 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-800 text-center">
             {title}
           </h1>
           {categories.map((category, index) => (

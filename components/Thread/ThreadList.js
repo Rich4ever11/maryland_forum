@@ -29,7 +29,7 @@ export default function ThreadList({ threadData, postData, loginStatus }) {
   return (
     <div className="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-4">
       <div className="grid grid-cols-12">
-        <h1 className="font-extrabold col-span-12 outline outline-offset-2 outline-1 leading-tight py-8 px-2 md:text-6xl text-4xl mt-0 mb-2 pb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 text-center">
+        <h1 className="font-black col-span-12 outline outline-offset-2 outline-1 leading-tight py-8 px-2 md:text-7xl text-5xl mt-0 mb-2 pb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 text-center">
           {threadData?.title || "Unknown"}
         </h1>
         <div className="col-span-12">
@@ -81,7 +81,7 @@ export default function ThreadList({ threadData, postData, loginStatus }) {
                 creatorId={loginStatus.id}
                 creatorRegisteredAt={loginStatus.createdAt}
                 creatorUsername={loginStatus.username}
-                publishedAt={new Date().toString()}
+                publishedAt={"Not Available"}
                 editStatus={true}
                 postCreation={true}
               />

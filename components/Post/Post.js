@@ -38,7 +38,7 @@ export default function Post({
         postData: { postId: id, postEdit: userEdit },
       }),
     });
-    await router.reload(window.location.pathname);
+    router.reload(window.location.pathname);
   }
 
   async function deletePost() {
@@ -49,7 +49,7 @@ export default function Post({
         postId: id,
       }),
     });
-    await router.reload(window.location.pathname);
+    router.reload(window.location.pathname);
   }
 
   async function createNewPost() {
@@ -62,7 +62,7 @@ export default function Post({
       }),
     });
     setUserPost("");
-    await router.reload(window.location.pathname);
+    router.reload(window.location.pathname);
   }
 
   return (
@@ -90,7 +90,7 @@ export default function Post({
           <div className="mb-8 sm:col-span-10 col-span-8 py-4">
             <div className="mb-8 divide-y-2 divide-red-200 divide-opacity-25">
               <div className=" text-gray-900 text-xs mb-2">
-                {formatDate(publishedAt) || "Unknown"}{" "}
+                {formatDate(publishedAt) || ""}{" "}
               </div>
               {editStatus ? (
                 <div className="mt-2">

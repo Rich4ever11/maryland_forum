@@ -39,7 +39,7 @@ export default function Home({ tokenStatus, categories }) {
         <div className={styles.heroImage}>
           <Image src="/static/friends.webp" width={520} height={500} alt={""} />
         </div>
-        <h1 className="font-extrabold outline outline-offset-2 outline-1 leading-tight md:text-8xl text-7xl mt-0 mb-2 pb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-600 text-center">
+        <h1 className="font-black outline outline-offset-2 outline-1 leading-tight md:text-8xl text-7xl mt-0 mb-2 pb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-600 text-center">
           Maryland Forum
         </h1>
         {categories.length && (

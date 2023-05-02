@@ -2,6 +2,7 @@
   position: absolute;
   z-index: -1;
   left: 0%;
+  top: 6%;
 }
 
 @media (max-width: 768px) {
@@ -13,7 +14,7 @@
 
 @media (min-width: 768px) {
   .heroImage {
-    right: 20%;
+    right: 10%;
     padding-top: 20px;
   }
 }
@@ -21,6 +22,6 @@
 @media (max-width: 1400px) {
   .heroImage {
     bottom: 200px;
-    right: 20%;
+    right: 10%;
   }
 }

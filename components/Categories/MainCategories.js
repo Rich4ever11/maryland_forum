@@ -32,7 +32,7 @@ export default function MainCategory({ categories, title }) {
     <div>
       <div className="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-4 grid grid-cols-10">
         <div className="lg:col-span-8 col-span-10">
-          <h1 className="font-extrabold leading-tight md:text-6xl text-5xl pb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 text-center">
+          <h1 className="font-black leading-tight md:text-6xl text-5xl pb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 text-center">
             {title}
           </h1>
           {categoriesData.map((category, index) => (
@@ -60,7 +60,7 @@ export default function MainCategory({ categories, title }) {
       </div>
       <div className="mb-10">
         <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
-          <h1 className="font-extrabold leading-tight md:text-7xl text-6xl pb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 text-center">
+          <h1 className="font-black leading-tight md:text-7xl text-6xl pb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 text-center">
             {"Maryland Photography"}
           </h1>
           <div className="-m-1 flex flex-wrap md:-m-2">

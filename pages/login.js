@@ -28,6 +28,7 @@ export async function getServerSideProps(context) {
 export default function Login({ tokenStatus }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [toggleLoginError, setToggleLoginError] = useState(false);
 
   const router = useRouter();
 
@@ -48,12 +49,12 @@ export default function Login({ tokenStatus }) {
             Cookies.set("token", resultData?.data?.token);
             await router.push("/");
           } else {
-            alert("Failed To Login");
+            setToggleLoginError(true);
           }
         })
         .catch(console.error);
     } catch {
-      alert("Failed To Login");
+      setToggleLoginError(true);
     }
   }
 
@@ -75,7 +76,7 @@ export default function Login({ tokenStatus }) {
           </div>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <a
-              href="#"
+              href="/"
               className="flex flex-col pt-4 items-center mb-6 text-4xl font-semibold text-gray-900 dark:text-white "
             >
               <img
@@ -103,6 +104,7 @@ export default function Login({ tokenStatus }) {
                     required=""
                     onChange={(e) => {
                       setEmail(e.target.value);
+                      setToggleLoginError(false);
                     }}
                   />
                 </div>
@@ -119,9 +121,37 @@ export default function Login({ tokenStatus }) {
                     required=""
                     onChange={(e) => {
                       setPassword(e.target.value);
+                      setToggleLoginError(false);
                     }}
                   />
                 </div>
+                {toggleLoginError ? (
+                  <div
+                    className="flex p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
+                    role="alert"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="flex-shrink-0 inline w-5 h-5 mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span className="sr-only">Info</span>
+                    <div>
+                      <span className="font-medium">Login Failed!</span> Please
+                      try again
+                    </div>
+                  </div>
+                ) : (
+                  <></>
+                )}
                 <button
                   type="submit"
                   className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"

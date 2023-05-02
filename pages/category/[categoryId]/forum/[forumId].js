@@ -34,7 +34,7 @@ export default function Forum({ tokenStatus, categoryName, forumData }) {
   return (
     <>
       <NavBar loginStatus={tokenStatus} />
-      <h1 className="font-extrabold outline outline-offset-2 outline-1 leading-tight p-10 md:text-8xl text-6xl mt-0 mb-2 pb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-red-600 text-center">
+      <h1 className="font-black outline outline-offset-2 outline-1 leading-tight p-10 md:text-8xl text-6xl mt-0 mb-2 pb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-red-600 text-center">
         {categoryName}
       </h1>
       <ForumList

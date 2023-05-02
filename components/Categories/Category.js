@@ -44,7 +44,7 @@ export default function Category(props) {
 
       <div className="sm:col-span-6 max-[500]:col-span-1 pl-2">
         <strong>
-          <div className="text-1xl font-bold tracking-tight text-red-500 dark:text-red-400 pt-1">
+          <div className="text-1xl font-normal tracking-tight text-red-500 dark:text-red-400 pt-1">
             <Link href={`/category/${categoryId}`}>{title}</Link>
           </div>
         </strong>

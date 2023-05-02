@@ -16,7 +16,7 @@ export default function OnlineMembers() {
   return (
     <>
       <div className="invisible lg:visible" id={styles.section}>
-        <h1 className="font-extrabold leading-tight text-4xl mt-0 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-red-600  text-center">
+        <h1 className="font-black leading-tight text-4xl mt-0 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-red-600  text-center">
           Newest Members
         </h1>
         <div

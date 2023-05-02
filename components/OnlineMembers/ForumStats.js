@@ -15,7 +15,7 @@ export default function ForumStats() {
   return (
     <>
       <div className="divide-y-4">
-        <h1 className="font-extrabold leading-tight text-4xl mt-0 mb-2 text-transparent bg-clip-text bg-gradient-to-r  from-yellow-200 to-red-600  text-center">
+        <h1 className="font-black leading-tight text-4xl mt-0 mb-2 text-transparent bg-clip-text bg-gradient-to-r  from-yellow-200 to-red-600  text-center">
           Forum Statistics
         </h1>
       </div>

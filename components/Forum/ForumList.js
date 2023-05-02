@@ -28,7 +28,7 @@ export default function ForumList(props) {
               alt={""}
             />
           </div>
-          <h1 className="font-extrabold leading-tight text-6xl mt-0 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-stone-300 to-red-600 text-center">
+          <h1 className="font-black leading-tight text-6xl mt-0 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-stone-300 to-red-600 text-center">
             {disabled ? (
               <div>{title}</div>
             ) : (
