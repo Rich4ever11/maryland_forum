@@ -22,10 +22,6 @@ export default function ThreadList({ threadData, postData, loginStatus }) {
     route.push("/");
   }
 
-  async function editThread() {
-    alert("Thread Edited");
-  }
-
   return (
     <div className="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-4">
       <div className="grid grid-cols-12">
@@ -48,12 +44,6 @@ export default function ThreadList({ threadData, postData, loginStatus }) {
           </div>
           {loginStatus.id === threadData.creatorId ? (
             <div>
-              <button
-                className="my-2 bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded"
-                onClick={editThread}
-              >
-                Edit Thread
-              </button>
               <button
                 className="m-2 bg-rose-700 hover:bg-rose-900 text-white font-bold py-2 px-4 rounded"
                 onClick={deleteThread}
