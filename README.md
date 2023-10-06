@@ -17,4 +17,4 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-DEMO OF APPLICATION - **https://drive.google.com/file/d/1tB9FKjhT9QH5MKXS7xNo8Cj1gEa8iJlk/view?usp=sharing**
+DEMO - **https://drive.google.com/file/d/1tB9FKjhT9QH5MKXS7xNo8Cj1gEa8iJlk/view?usp=sharing**
